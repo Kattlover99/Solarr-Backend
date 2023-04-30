@@ -1,0 +1,831 @@
+---
+openapi: 3.0.0
+paths:
+  "/user/generate-nonce":
+    post:
+      operationId: UserController_generateNonce
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/GenerateNonceDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - User
+  "/user/verify-signature":
+    post:
+      operationId: UserController_verifySignature
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/VerifySignatureDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - User
+  "/user/me":
+    get:
+      operationId: UserController_getMe
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - User
+      security:
+      - bearer: []
+  "/user/user/{id}":
+    get:
+      operationId: UserController_getUser
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: number
+      responses:
+        '200':
+          description: ''
+      tags:
+      - User
+      security:
+      - bearer: []
+  "/user":
+    patch:
+      operationId: UserController_updateUser
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateUserDto"
+      responses:
+        '200':
+          description: ''
+      tags:
+      - User
+      security:
+      - bearer: []
+  "/user/upload/avatar":
+    post:
+      operationId: UserController_uploadAvatar
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: ''
+      tags:
+      - User
+      security:
+      - bearer: []
+  "/nft":
+    post:
+      operationId: NftController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateNftDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - NFT
+      security:
+      - bearer: []
+    get:
+      operationId: NftController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - NFT
+      security:
+      - bearer: []
+  "/collection":
+    post:
+      operationId: CollectionController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateCollectionDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Collection
+      security:
+      - bearer: []
+    get:
+      operationId: CollectionController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Collection
+      security:
+      - bearer: []
+  "/faq":
+    get:
+      operationId: FaqController_getAll
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - FAQ
+  "/list":
+    post:
+      operationId: ListController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateListDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - List
+      security:
+      - bearer: []
+    get:
+      operationId: ListController_getTransactionByAction
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/GetListDto"
+      responses:
+        '200':
+          description: ''
+      tags:
+      - List
+      security:
+      - bearer: []
+  "/list/account":
+    get:
+      operationId: ListController_getByAccount
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/ListByAccountDto"
+      responses:
+        '200':
+          description: ''
+      tags:
+      - List
+      security:
+      - bearer: []
+  "/list/{id}":
+    patch:
+      operationId: ListController_updateList
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateListDto"
+      responses:
+        '200':
+          description: ''
+      tags:
+      - List
+      security:
+      - bearer: []
+    delete:
+      operationId: ListController_deleteList
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - List
+      security:
+      - bearer: []
+  "/loan":
+    post:
+      operationId: LoanController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/LoanDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Loan
+      security:
+      - bearer: []
+    get:
+      operationId: LoanController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Loan
+      security:
+      - bearer: []
+  "/loan/{id}":
+    patch:
+      operationId: LoanController_updateLoan
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateLoanDto"
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Loan
+      security:
+      - bearer: []
+  "/loan/:id":
+    delete:
+      operationId: LoanController_deleteLoan
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Loan
+      security:
+      - bearer: []
+  "/offer":
+    post:
+      operationId: OfferController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/OfferDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Offer
+      security:
+      - bearer: []
+    get:
+      operationId: OfferController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Offer
+      security:
+      - bearer: []
+    delete:
+      operationId: OfferController_deleteOffer
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Offer
+      security:
+      - bearer: []
+  "/offer/{id}":
+    patch:
+      operationId: OfferController_updateOffer
+      parameters:
+      - name: id
+        required: true
+        in: path
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UpdateOfferDto"
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Offer
+      security:
+      - bearer: []
+  "/history":
+    post:
+      operationId: HistoryController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateHistoryDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - History
+      security:
+      - bearer: []
+    get:
+      operationId: HistoryController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - History
+      security:
+      - bearer: []
+  "/whitelist":
+    post:
+      operationId: WhitelistController_create
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateWhitelistDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Whitelist
+      security:
+      - bearer: []
+    get:
+      operationId: WhitelistController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Whitelist
+      security:
+      - bearer: []
+  "/notification":
+    post:
+      operationId: NotificationController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateNotificationDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - Notification
+      security:
+      - bearer: []
+    get:
+      operationId: NotificationController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - Notification
+      security:
+      - bearer: []
+  "/loanHistory":
+    post:
+      operationId: LoanHistoryController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateLoanHistoryDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - LoanHistory
+      security:
+      - bearer: []
+    get:
+      operationId: LoanHistoryController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - LoanHistory
+      security:
+      - bearer: []
+  "/listHistory":
+    post:
+      operationId: ListHistoryController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateListHistoryDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - ListHistory
+      security:
+      - bearer: []
+    get:
+      operationId: ListHistoryController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - ListHistory
+      security:
+      - bearer: []
+  "/offerHistory":
+    post:
+      operationId: OfferHistoryController_mint
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateOfferHistoryDto"
+      responses:
+        '201':
+          description: ''
+      tags:
+      - OfferHistory
+      security:
+      - bearer: []
+    get:
+      operationId: OfferHistoryController_getTransactionByAction
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+      - OfferHistory
+      security:
+      - bearer: []
+info:
+  title: Solarr API Documentation
+  description: Solarr API Documentation
+  version: '1.0'
+  contact: {}
+tags:
+- name: API
+  description: ''
+servers: []
+components:
+  securitySchemes:
+    bearer:
+      scheme: bearer
+      bearerFormat: JWT
+      type: http
+  schemas:
+    GenerateNonceDto:
+      type: object
+      properties:
+        address:
+          type: string
+      required:
+      - address
+    VerifySignatureDto:
+      type: object
+      properties:
+        address:
+          type: string
+        signature:
+          type: string
+      required:
+      - address
+      - signature
+    UpdateUserDto:
+      type: object
+      properties:
+        username:
+          type: string
+        avatar:
+          type: string
+      required:
+      - username
+      - avatar
+    CreateNftDto:
+      type: object
+      properties:
+        name:
+          type: string
+        tokenId:
+          type: number
+        state:
+          type: number
+        metadata:
+          type: string
+        collectionFloor:
+          type: number
+        bankValuation:
+          type: number
+        ownerId:
+          type: number
+        collectionId:
+          type: number
+      required:
+      - name
+      - tokenId
+      - state
+      - metadata
+      - collectionFloor
+      - bankValuation
+      - ownerId
+      - collectionId
+    CreateCollectionDto:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+      required:
+      - name
+      - address
+    CreateListDto:
+      type: object
+      properties:
+        loanAmount:
+          type: number
+        loanType:
+          type: boolean
+        period:
+          type: number
+        apr:
+          type: number
+        borrowerId:
+          type: number
+        collectionAddress:
+          type: string
+        tokenId:
+          type: number
+        metadata:
+          type: string
+      required:
+      - loanAmount
+      - loanType
+      - period
+      - apr
+      - borrowerId
+      - collectionAddress
+      - tokenId
+      - metadata
+    GetListDto:
+      type: object
+      properties:
+        lenderId:
+          type: number
+      required:
+      - lenderId
+    ListByAccountDto:
+      type: object
+      properties:
+        borrowerId:
+          type: number
+        nfts:
+          type: array
+          items:
+            type: string
+      required:
+      - borrowerId
+      - nfts
+    UpdateListDto:
+      type: object
+      properties:
+        loanAmount:
+          type: number
+        loanType:
+          type: boolean
+        period:
+          type: number
+        apr:
+          type: number
+      required:
+      - loanAmount
+      - loanType
+      - period
+      - apr
+    LoanDto:
+      type: object
+      properties:
+        state:
+          type: number
+        borrowerId:
+          type: number
+        lenderId:
+          type: number
+        collectionAddress:
+          type: string
+        tokenId:
+          type: number
+        acceptedOfferId:
+          type: number
+      required:
+      - state
+      - borrowerId
+      - lenderId
+      - collectionAddress
+      - tokenId
+      - acceptedOfferId
+    UpdateLoanDto:
+      type: object
+      properties:
+        state:
+          type: number
+      required:
+      - state
+    OfferDto:
+      type: object
+      properties:
+        loanAmount:
+          type: number
+        period:
+          type: number
+        apr:
+          type: number
+        loanType:
+          type: boolean
+        borrowerId:
+          type: number
+        lenderId:
+          type: number
+        collectionAddress:
+          type: string
+        tokenId:
+          type: number
+      required:
+      - loanAmount
+      - period
+      - apr
+      - loanType
+      - borrowerId
+      - lenderId
+      - collectionAddress
+      - tokenId
+    UpdateOfferDto:
+      type: object
+      properties:
+        loanAmount:
+          type: number
+        period:
+          type: number
+        state:
+          type: number
+      required:
+      - loanAmount
+      - period
+      - state
+    CreateHistoryDto:
+      type: object
+      properties:
+        type:
+          type: number
+        borrowerAction:
+          type: number
+        lenderAction:
+          type: number
+        userId:
+          type: number
+        nftId:
+          type: number
+      required:
+      - type
+      - borrowerAction
+      - lenderAction
+      - userId
+      - nftId
+    CreateWhitelistDto:
+      type: object
+      properties:
+        collectionAddress:
+          type: string
+        tokenId:
+          type: number
+      required:
+      - collectionAddress
+      - tokenId
+    CreateNotificationDto:
+      type: object
+      properties:
+        userId:
+          type: number
+        nftId:
+          type: number
+        status:
+          type: number
+      required:
+      - userId
+      - nftId
+      - status
+    CreateLoanHistoryDto:
+      type: object
+      properties:
+        action:
+          type: number
+        borrowerId:
+          type: number
+        lenderId:
+          type: number
+        loanId:
+          type: number
+      required:
+      - action
+      - borrowerId
+      - lenderId
+      - loanId
+    CreateListHistoryDto:
+      type: object
+      properties:
+        action:
+          type: number
+        listId:
+          type: number
+      required:
+      - action
+      - listId
+    CreateOfferHistoryDto:
+      type: object
+      properties:
+        action:
+          type: number
+        offerId:
+          type: number
+      required:
+      - action
+      - offerId

@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  solarr_credit_be:
+    ports:
+      - 8003:8003
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - /app/logs:/usr/app/logs

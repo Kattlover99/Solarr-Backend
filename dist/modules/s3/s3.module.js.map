@@ -1,0 +1,1 @@
+{"version":3,"file":"s3.module.js","sourceRoot":"","sources":["../../../src/modules/s3/s3.module.ts"],"names":[],"mappings":";;;;;;;;;AAAA,2CAAwC;AACxC,8DAAwD;AACxD,6CAAyC;AAOlC,IAAM,QAAQ,GAAd,MAAM,QAAQ;CAAG,CAAA;AAAX,QAAQ;IALpB,IAAA,eAAM,EAAC;QACN,OAAO,EAAE,CAAC,4BAAY,CAAC;QACvB,SAAS,EAAE,CAAC,sBAAS,CAAC;QACtB,OAAO,EAAE,CAAC,sBAAS,CAAC;KACrB,CAAC;GACW,QAAQ,CAAG;AAAX,4BAAQ"}
